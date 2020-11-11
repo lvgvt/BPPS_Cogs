@@ -25,7 +25,7 @@ def select_random_quote(conn):
     :return:
     """
     cur = conn.cursor()
-    cur.execute("SELECT quote FROM table ORDER BY RANDOM() LIMIT 1")
+    cur.execute("SELECT quote FROM quotes ORDER BY RANDOM() LIMIT 1")
 
     rows = cur.fetchall()
 

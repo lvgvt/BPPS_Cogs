@@ -1,6 +1,11 @@
 from redbot.core import commands
 import sqlite3
 from sqlite3 import Error
+import os.path
+
+
+with sqlite3.connect(db_path) as db:
+
 
 def select_random_quote(conn):
     """
@@ -9,10 +14,12 @@ def select_random_quote(conn):
     :param priority:
     :return:
     """
-
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(BASE_DIR, "bppssqlite.db")
+    print(db_path)
     conn = None
     try:
-        conn = sqlite3.connect(r"./bppssqlite.db")
+        conn = sqlite3.connect(db_path)
     except Error as e:
         print(e)
 

@@ -17,11 +17,13 @@ def select_random_quote():
         print(e)
 
     cur = conn.cursor()
-    cur.execute("SELECT quote FROM quotes ORDER BY RANDOM() LIMIT 1")
+    cur.execute("SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1")
 
     rows = cur.fetchall()
-
-    return rows
+    quotes = rows[1]
+    author = rows[2]
+    date = rows[3]
+    return quote+" -"+author+" added on "+date
 
 class quotes(commands.Cog):
     """My custom cog"""

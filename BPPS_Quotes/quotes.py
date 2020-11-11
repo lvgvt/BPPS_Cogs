@@ -38,7 +38,7 @@ class quotes(commands.Cog):
     async def quote(self, ctx):
         """This does stuff!"""
 
-        database = r"../bppssqlite.db"
+        database = r"./bppssqlite.db"
 
         # create a database connection
         conn = create_connection(database)

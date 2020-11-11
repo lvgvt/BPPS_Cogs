@@ -3,10 +3,6 @@ import sqlite3
 from sqlite3 import Error
 import os.path
 
-
-with sqlite3.connect(db_path) as db:
-
-
 def select_random_quote():
     """
     Query tasks by priority

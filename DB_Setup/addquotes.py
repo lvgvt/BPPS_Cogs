@@ -54,8 +54,7 @@ def main():
         quote10 = ('Cole','They weren’t silver ones, they were half silver twos', today.strftime("%d/%m/%y"))
         quote11 = ('Cole','I will not stop playing dota 2 until I win a game starting now...” Cole, on setting goals', today.strftime("%d/%m/%y"))
         quote12 = ('Cole','Hey lawrence what the fuck was that', today.strftime("%d/%m/%y"))
-        quote13 = ('Cole','I will not stop playing dota 2 until I win a game starting now” - Cole, on learning from his mistakes
-', today.strftime("%d/%m/%y"))
+        quote13 = ('Cole','I will not stop playing dota 2 until I win a game starting now” - Cole, on learning from his mistakes', today.strftime("%d/%m/%y"))
         quote14 = ('Cole','Default dances on your dead body', today.strftime("%d/%m/%y"))
         quote15 = ('Cole','size comparison owo', today.strftime("%d/%m/%y"))
         #quote10 = ('Cole','ssssssss', today.strftime("%d/%m/%y"))

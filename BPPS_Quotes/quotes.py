@@ -33,14 +33,16 @@ def select_random_quote(conn):
 
 class quotes(commands.Cog):
     """My custom cog"""
-    database = r"../bppssqlite.db"
-
-    # create a database connection
-    conn = create_connection(database)
-
+    
     @commands.command()
     async def quote(self, ctx):
         """This does stuff!"""
+
+        database = r"../bppssqlite.db"
+
+        # create a database connection
+        conn = create_connection(database)
+
         quote = select_random_quote(conn)
         # Your code will go here
         await ctx.send(quote)

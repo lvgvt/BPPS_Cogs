@@ -12,7 +12,7 @@ def select_random_quote():
     """
     conn = None
     try:
-        conn = sqlite3.connect("~/redenv/BPPS_Cogs/BPPS_Quotes/bppssqlite.db")
+        conn = sqlite3.connect("./bppssqlite.db")
     except Error as e:
         print(e)
 

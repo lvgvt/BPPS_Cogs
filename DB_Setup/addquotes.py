@@ -46,7 +46,7 @@ def main():
         quote2 = ('Cole','uh oh, UH OH!" *dead*', today.strftime("%d/%m/%y"))
         quote3 = ('Cole','THERE ARE NO BRAKES ON THE SPIRIT BREAKER TRAIN!!! *charges under enemy t1 on entire enemy team*', today.strftime("%d/%m/%y"))
         quote4 = ('Cole','https://gfycat.com/orderlygrippingaplomadofalcon', today.strftime("%d/%m/%y"))
-        quote5 = ('Cole','We gave them a thrashing they'll not soon forget', today.strftime("%d/%m/%y"))
+        quote5 = ('Cole','We gave them a thrashing they\'ll not soon forget', today.strftime("%d/%m/%y"))
         quote6 = ('Cole','He is embarrassed as fuck, like super tsundere style', today.strftime("%d/%m/%y"))
         quote7 = ('Cole','FBI more like Fuck Bois Incorporated', today.strftime("%d/%m/%y"))
         quote8 = ('Cole','Rising Tide, Splitting Headache" (Cole\'s ultimate ability)', today.strftime("%d/%m/%y"))

@@ -14,12 +14,9 @@ def select_random_quote():
     :param priority:
     :return:
     """
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    db_path = os.path.join(BASE_DIR, "bppssqlite.db")
-    print(db_path)
     conn = None
     try:
-        conn = sqlite3.connect(db_path)
+        conn = sqlite3.connect("~/redenv/BPPS_Cogs/BPPS_Quotes/bppssqlite.db")
     except Error as e:
         print(e)
 

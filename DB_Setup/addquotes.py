@@ -35,7 +35,7 @@ def create_quote(conn, quote):
 
 
 def main():
-    database = r"../bppsqlite.db"
+    database = r"../bppssqlite.db"
 
     # create a database connection
     conn = create_connection(database)
@@ -45,8 +45,7 @@ def main():
         quote1 = ('Cole','IM NOT SMART ENOUGH!!!!', today.strftime("%d/%m/%y"))
 
         # create tasks
-        create_quote(conn, task_1)
-
+        create_quote(conn, quote1)
 
 
 if __name__ == '__main__':

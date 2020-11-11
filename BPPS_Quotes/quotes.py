@@ -7,7 +7,7 @@ import os.path
 with sqlite3.connect(db_path) as db:
 
 
-def select_random_quote(conn):
+def select_random_quote():
     """
     Query tasks by priority
     :param conn: the Connection object
@@ -36,6 +36,6 @@ class quotes(commands.Cog):
     @commands.command()
     async def quote(self, ctx):
         """This does stuff!"""
-        quote = select_random_quote(conn)
+        quote = select_random_quote()
         # Your code will go here
         await ctx.send(quote)

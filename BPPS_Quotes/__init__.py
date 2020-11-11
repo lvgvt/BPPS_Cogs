@@ -1,4 +1,4 @@
-from .mycog import Mycog
+from .quotes import quotes
 
 
 def setup(bot):

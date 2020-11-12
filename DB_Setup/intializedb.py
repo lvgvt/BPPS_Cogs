@@ -1,5 +1,7 @@
 import sqlite3
 from sqlite3 import Error
+from datetime import date
+
 
 
 def create_connection(db_file):
@@ -11,28 +13,32 @@ def create_connection(db_file):
     conn = None
     try:
         conn = sqlite3.connect(db_file)
-        return conn
     except Error as e:
         print(e)
 
     return conn
 
-
-def create_table(conn, create_table_sql):
-    """ create a table from the create_table_sql statement
-    :param conn: Connection object
-    :param create_table_sql: a CREATE TABLE statement
+def create_quote(conn, quote):
+    """
+    Create a new task
+    :param conn:
+    :param task:
     :return:
     """
-    try:
-        c = conn.cursor()
-        c.execute(create_table_sql)
-    except Error as e:
-        print(e)
+
+    sql = ''' INSERT INTO quotes(author,quote,date_added)
+              VALUES(?,?,?) '''
+    cur = conn.cursor()
+    cur.execute(sql, quote)
+    conn.commit()
+    return cur.lastrowid
 
 
 def main():
     database = r"./bppssqlite.db"
+
+    # create a database connection
+    conn = create_connection(database)
 
     sql_create_quotes_table = """ CREATE TABLE IF NOT EXISTS quotes (
                                         id integer PRIMARY KEY,
@@ -41,15 +47,19 @@ def main():
                                         date_added text
                                     ); """
 
-    # create a database connection
-    conn = create_connection(database)
-
-    # create tables
-    if conn is not None:
-        # create projects table
-        create_table(conn, sql_create_quotes_table)
-    else:
-        print("Error! cannot create the database connection.")
+    with conn:
+        try:
+            c = conn.cursor()
+            c.execute(create_table_sql)
+        except Error as e:
+            print(e)
+        today = date.today()
+        f = open("quotes.txt", "r")
+        for l in f:
+            line = l.split('*')
+            quote = (line[0],line[1], today.strftime("%d/%m/%y"))
+            create_quote(conn, quote)
+        f.close()
 
 
 if __name__ == '__main__':

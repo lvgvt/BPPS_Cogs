@@ -50,7 +50,7 @@ def main():
     with conn:
         try:
             c = conn.cursor()
-            c.execute(create_table_sql)
+            c.execute(sql_create_quotes_table)
         except Error as e:
             print(e)
         today = date.today()

@@ -19,8 +19,8 @@ def select_random_quote():
     cur = conn.cursor()
     cur.execute("SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1")
 
-    rows = cur.fetchall()
-    quotes = rows[1].replace('\n', '')
+    rows = cur.fetchone()
+    quote = rows[1].replace('\n', '')
     author = rows[2]
     date = rows[3]
     return quote+" -"+author+" added on "+date

@@ -20,10 +20,10 @@ def select_random_quote():
     cur.execute("SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1")
 
     rows = cur.fetchone()
-    quote = rows[1].replace('\n', '')
-    author = rows[2]
+    quote = rows[2].replace('\n', '')
+    author = rows[1]
     date = rows[3]
-    return quote+" -"+author+" added on "+date
+    return "\""+quote+"\" -"+author+", added on "+date+"."
 
 class quotes(commands.Cog):
     """My custom cog"""

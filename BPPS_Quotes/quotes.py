@@ -40,8 +40,8 @@ class quotes(commands.Cog):
         await ctx.send(quote)
 
     @commands.command()
-    async def addquote(self, ctx, quote):
+    async def addquote(self, ctx, quote, author):
         """This does stuff!"""
         ""
         # Your code will go here
-        await ctx.send("Added: "+quote)
+        await ctx.send("Added: "+quote+" from "+author)

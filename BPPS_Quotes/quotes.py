@@ -4,12 +4,6 @@ from sqlite3 import Error
 import os.path
 
 def select_random_quote():
-    """
-    Query tasks by priority
-    :param conn: the Connection object
-    :param priority:
-    :return:
-    """
     conn = None
     try:
         conn = sqlite3.connect("./bppssqlite.db")
@@ -25,6 +19,16 @@ def select_random_quote():
     date = rows[3]
     return "\""+quote+"\" -"+author+", added on "+date+"."
 
+def add_quote(quote, author):
+    conn = None
+    try:
+        conn = sqlite3.connect("./bppssqlite.db")
+    except Error as e:
+        print(e)
+
+    cur = conn.cursor()
+    cur.execute("INSERT INTO ")
+
 class quotes(commands.Cog):
     """My custom cog"""
     
@@ -34,3 +38,10 @@ class quotes(commands.Cog):
         quote = select_random_quote()
         # Your code will go here
         await ctx.send(quote)
+
+    @commands.command()
+    async def addquote(self, ctx, quote):
+        """This does stuff!"""
+        ""
+        # Your code will go here
+        await ctx.send("Added: "+quote)

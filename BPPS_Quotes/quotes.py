@@ -1,7 +1,7 @@
 from redbot.core import commands
 import sqlite3
 from sqlite3 import Error
-import os.path
+from datetime import date
 
 def select_random_quote():
     conn = None
@@ -27,7 +27,11 @@ def add_quote(quote, author):
         print(e)
 
     cur = conn.cursor()
-    cur.execute("INSERT INTO ")
+    today = date.today().strftime("%m/%d/%y")
+    record = (author, quote, today)
+    sql = ''' INSERT INTO quotes(author,quote,date_added)
+                VALUES(?,?,?) '''
+    cur.execute(sql, record)
 
 class quotes(commands.Cog):
     """My custom cog"""
@@ -41,7 +45,7 @@ class quotes(commands.Cog):
 
     @commands.command()
     async def addquote(self, ctx, quote, author):
-        """This does stuff!"""
+        """Adds a quote to the list"""
         ""
         # Your code will go here
-        await ctx.send("Added: "+quote+" from "+author)
+        await ctx.send("Added: \""+quote+"\" by "+author)

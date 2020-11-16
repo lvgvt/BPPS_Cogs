@@ -33,6 +33,7 @@ def chesspn_generator():
 def addpatchnote(input):
     pns = open('input.txt', 'w')
     pns.write(input+'\n')
+    pns.close()
     return "Chess patch note added to the chain!"
 
 

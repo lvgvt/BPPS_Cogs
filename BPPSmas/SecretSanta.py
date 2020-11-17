@@ -12,7 +12,7 @@ class SecretSanta(commands.Cog):
     """Chess Patch Notes!"""
 
     @commands.command()
-    async def addSanta(self, ctx):
+    async def addSanta(self, name):
         # Your code will go here
-        print(ctx)
-        await ctx.send('test')
+        addEntry(name)
+        await ctx.send(name+' has been added')

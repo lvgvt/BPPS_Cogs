@@ -1,11 +1,11 @@
 import discord
 import datetime
-from discord.ext import commands
+from redbot.core import commands
 
 __spiced_up_by__ = "Young™#5484"
 __author__ = "Neo#1375"
 
-class SecretSanta:
+class SecretSanta(commands.Cog):
     """PM People Using The Bot"""
     def __init__(self, bot):
         self.bot = bot

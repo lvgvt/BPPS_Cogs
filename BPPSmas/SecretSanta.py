@@ -15,17 +15,7 @@ class SecretSanta(commands.Cog):
         """Dm users."""
         names = open('secretsanta.txt', 'r')
         user_id = names.readline()
-        user = await self.bot.get_user_info(user_id)
-        try:
-            e = discord.Embed(colour=discord.Colour.red())
-            e.title = "You've recieved a message from a developer!"
-            e.add_field(name="Developer:", value=ctx.message.author, inline=False)
-            e.add_field(name="Time:", value=datetime.datetime.now().strftime("%A, %B %-d %Y at %-I:%M%p").replace("PM", "pm").replace("AM", "am"), inline=False)
-            e.add_field(name="Message:", value="hello!", inline=False)
-            e.set_thumbnail(url=ctx.message.author.avatar_url)
-            await self.bot.send_message(user, embed=e)
-        except:
-            await self.bot.say(':x: Failed to send message to user_id `{}`.'.format(user_id))
-        else:
-            await self.bot.say('Succesfully sent message to {}'.format(user_id))		
-
+        user_id = user_id[3:len(user_id)-2]
+        print(self.bot.users)
+        user = self.bot.get_user(int(user_id))
+        await user.send("hello!")

@@ -1,6 +1,5 @@
 import discord
 import datetime
-from cogs.utils import checks
 from discord.ext import commands
 
 __spiced_up_by__ = "Young™#5484"
@@ -11,14 +10,7 @@ class SecretSanta:
     def __init__(self, bot):
         self.bot = bot
 
-    def addEntry(name):
-    names = open('secretsanta.txt', 'a')
-    names.write(name+'\n')
-    names.close()
-    return "Chess patch note added to the chain!"
-
     @commands.command(pass_context=True)
-    @checks.is_owner()
     async def santaTest(self, ctx):
         """Dm users."""
         names = open('secretsanta.txt', 'r')
@@ -36,12 +28,6 @@ class SecretSanta:
             await self.bot.say(':x: Failed to send message to user_id `{}`.'.format(user_id))
         else:
             await self.bot.say('Succesfully sent message to {}'.format(user_id))		
-
-    @commands.command()
-    async def addSanta(self, ctx, user):
-        # Your code will go here
-        addEntry(user)
-        await ctx.send(user+' has been added')
 
 def setup(bot):
     bot.remove_command('whisper')

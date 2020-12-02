@@ -25,4 +25,6 @@ class SecretSanta(commands.Cog):
         for i in range(len(allUsers)-1):
             userToSend = allUsers[i]
             userToRecieve = allUsers[i+1]
-            await user.send("Hello "+userToSend.name+", you are the secret santa for "+userToRecieve+" to send them a gift! Consider dropping off their present while social distancing at their house, or send my mail. Merry Christmas, Happy Holidays!")
+            await user.send("Hello <@"+str(userToSend.id)+">, you are the secret santa for "+userToRecieve.name+" to send them a gift!")
+            await user.sent("Consider dropping off their present at their house while social distancing, or send my mail.")
+            await user.send("Merry Christmas, Happy Holidays!")

@@ -2,9 +2,6 @@ import discord
 from redbot.core import commands
 import random
 
-__spiced_up_by__ = "Young™#5484"
-__author__ = "Neo#1375"
-
 class SecretSanta(commands.Cog):
     """PM People Using The Bot"""
     def __init__(self, bot):
